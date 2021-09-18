@@ -14,20 +14,20 @@
     </div>
     <div id="search">
       <div class="if">
-        <input type="text" class="it" name="wd" placeholder="搜索.." />
-        <i class="fa fa-paper-plane-o" style="      background: none;"></i>
+        <input type="text" class="it" id="in" placeholder="搜索..." />
+        <i class="fa fa-paper-plane-o" style="background: none;"></i>
       </div>
     </div>
   </body>
   <script>
     $(function() {
-      $('input').keydown(function(e) {
+      $('#in').keydown(function(e) {
         if (event.keyCode == 13) {
-          window.location.href = "https://www.baidu.com/#ie={inputEncoding}&wd=" + $("input").val();
+          window.location.href = "https://www.baidu.com/#ie={inputEncoding}&wd=" + $("#in").val();
         }
       });
       $("i").click(function() {
-        window.location.href = "https://www.baidu.com/#ie={inputEncoding}&wd=" + $("input").val();
+        window.location.href = "https://www.baidu.com/#ie={inputEncoding}&wd=" + $("#in").val();
       })
     })
   </script>
