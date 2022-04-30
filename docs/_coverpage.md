@@ -1,6 +1,6 @@
 
 
-<img src="https://cdn.jsdelivr.net/gh/bueryouth/images@main/1651295964840%E4%B8%89%E8%A7%92.png" style="zoom:67%;" />
+<img src="https://cdn.jsdelivr.net/gh/bueryouth/images@main/1651295950439%E7%AB%B9.png" style="zoom:67%;" />
 
 # **BuerYouth**欢迎您
 
