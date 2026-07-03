@@ -1,0 +1,266 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>BuerYouth - Please believe, something beautiful is on its way!</title><meta name="author" content="BuerYouth"><meta name="copyright" content="BuerYouth"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="BuerYouth 的个人技术博客">
+<meta property="og:type" content="website">
+<meta property="og:title" content="BuerYouth">
+<meta property="og:url" content="https://bueryouth.github.io/index.html">
+<meta property="og:site_name" content="BuerYouth">
+<meta property="og:description" content="BuerYouth 的个人技术博客">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://bueryouth.github.io/img/avatar.jpg">
+<meta property="article:author" content="BuerYouth">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://bueryouth.github.io/img/avatar.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "BuerYouth",
+  "alternateName": [
+    "Please believe, something beautiful is on its way!",
+    "bueryouth.github.io"
+  ],
+  "url": "https://bueryouth.github.io/"
+}</script><link rel="shortcut icon" href="/img/logo.png"><link rel="canonical" href="https://bueryouth.github.io/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.5"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          const mediaQueryDark = window.matchMedia('(prefers-color-scheme: dark)')
+          const mediaQueryLight = window.matchMedia('(prefers-color-scheme: light)')
+
+          if (theme === undefined) {
+            if (mediaQueryLight.matches) activateLightMode()
+            else if (mediaQueryDark.matches) activateDarkMode()
+            else {
+              const hour = new Date().getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            mediaQueryDark.addEventListener('change', () => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else {
+            theme === 'light' ? activateLightMode() : activateDarkMode()
+          }
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'BuerYouth',
+  isHighlightShrink: false,
+  isToc: false,
+  pageType: 'home'
+}</script><link rel="stylesheet" href="/css/custom.css"><meta name="generator" content="Hexo 8.1.2"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      if ($loadingBox.classList.contains('loaded')) return
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+
+  if (document.readyState === 'complete') {
+    preloader.endLoading()
+  } else {
+    window.addEventListener('load', preloader.endLoading)
+    document.addEventListener('DOMContentLoaded', preloader.endLoading)
+    // Add timeout protection: force end after 7 seconds
+    setTimeout(preloader.endLoading, 7000)
+  }
+
+  if (false) {
+    btf.addGlobalFn('pjaxSend', preloader.initLoading, 'preloader_init')
+    btf.addGlobalFn('pjaxComplete', preloader.endLoading, 'preloader_end')
+  }
+})()</script><div class="page" id="body-wrap"><header class="full_page" id="page-header" style="background-image: url(/img/bg.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/logo.png" alt="Logo"><span class="site-name">BuerYouth</span></a></span><div id="menus"></div></nav><div id="site-info"><h1 id="site-title">BuerYouth</h1><div id="site-subtitle"><span id="subtitle"></span></div></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts nc" id="recent-posts"><div class="recent-post-items"><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/07/03/SpringBoot%E6%95%B4%E5%90%88Redis%E7%BC%93%E5%AD%98%E5%AE%9E%E4%BE%8B/" title="Spring Boot整合Redis缓存实例">Spring Boot整合Redis缓存实例</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-07-03T07:00:37.242Z" title="发表于 2026-07-03 15:00:37">2026-07-03</time></span></div><div class="content">@[TOC](Spring Boot整合Redis缓存实例) Redis简介Redis是一个开源的使用ANSI(美国国家标准协会) C语言编写、遵守BSD协议(一种开源协议)、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，它可以作为数据库、缓存和消息中间件，并提供多种语言的API。关于Redis 场景介绍利用Redis实现一个基本的缓存操作，写一个接口A接收浏览器传递的get参数，并装入缓存，再写一个接口B通过浏览器发送请求后，在浏览器展示接口A传递的参数。 实例环境及工具IDEA开发工具，Redis数据库， Spring Boot框架，Maven项目管理工具 引入依赖启动器在建好Spring Boot项目的前提下，向pom.xml添加依赖启动器。 12345&lt;dependency&gt;    &lt;groupId&gt;com.github.binarylei&lt;/groupId&gt;    &lt;artifactId&gt;spring-boot-stater-test-data-redis&lt;/artifactId&gt;    &...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/07/03/SpringBoot%E6%95%B4%E5%90%88Jpa%E5%BB%BA%E7%AB%8B%E6%95%B0%E6%8D%AE%E8%A1%A8/" title="Spring Boot整合Jpa建立数据表">Spring Boot整合Jpa建立数据表</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-07-03T07:00:37.241Z" title="发表于 2026-07-03 15:00:37">2026-07-03</time></span></div><div class="content">@[TOC](Spring Boot整合Jpa建立数据表) JPA简介 JPA由EJB 3.0软件专家组开发，作为JSR-220实现的一部分。但它又不限于EJB 3.0，你可以在Web应用、甚至桌面应用中使用。JPA的宗旨是为POJO提供持久化标准规范，由此可见，经过这几年的实践探索，能够脱离容器独立运行，方便开发和测试的理念已经深入人心了。Hibernate3.2+、TopLink 10.1.3以及OpenJPA都提供了JPA的实现。关于Spring Data JPA  场景介绍 现有配置完好的MySQL数据库环境，按照已知的MySQL语句，建立实体类并使用Jpa实现快速建立数据表。   123456CREATE TABLE `test`.`admin`  (  `id` int(11) NOT NULL AUTO_INCREMENT,  `name` varchar(88) NULL,  `age` int(11) NULL,  PRIMARY KEY (`id`))  实例环境及工具 IDEA开发工具，MySQL数据库， Spring Boot框架，Maven项目管理工具 ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/07/03/Python%E8%B0%83%E7%94%A8/" title="Python调用另一个.py文件中的类和函数">Python调用另一个.py文件中的类和函数</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-07-03T07:00:37.239Z" title="发表于 2026-07-03 15:00:37">2026-07-03</time></span></div><div class="content">@TOC 场景介绍 在demo01.py中编写一个add()加法方法，在demo02.py中调用demo01.py的add()方法做一组加法测试。 在demo03.py中编写一个dm03类,dm03类定义一个add()加法方法，在demo04.py中引入demo03.py的dm03类，创建实例调用的add()方法做一组加法测试。 在目录 “E:\python” 下的demo05.py中编写一个dm05类,dm05类定义一个add()加法方法，在demo06.py中引入demo05.py的dm05类，创建实例调用的add()方法做一组加法测试。  实例环境及工具 Python开发环境、Sublime_text文本编辑器  相同文件夹下的调用 文件之间调用方法   编写demo01.py 123def add( a, b):	# 返回a+b的和	return a + b 编写demo02.py 1234# 直接引入文件名import demo01# 输出测试用例print(demo01.add(12, 2)) 运行测试demo02.py 1214[Finished in 172ms]...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/07/03/Python%E7%88%AC%E5%8F%96%E5%A5%A5%E8%BF%90%E5%A5%96%E7%89%8C%E6%A6%9C/" title="Python爬取奥运奖牌榜">Python爬取奥运奖牌榜</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-07-03T07:00:37.237Z" title="发表于 2026-07-03 15:00:37">2026-07-03</time></span></div><div class="content">@TOC 场景介绍 数据截止于2021-07-31 使用urllib库爬取东京奥运会奖牌榜 使用pandas库快速导入、处理网页中的表格 查看奖牌榜网址(url&#x3D;’https://olympics.com/tokyo-2020/olympic-games/zh/results/all-sports/medal-standings.htm‘)  实例环境及工具 Python开发环境、Jupyter notebook编辑器 urllibs是python自带的库 pandas库需要自行安装pip install pandas  爬取奖牌榜 导入相关库  12import pandas as psfrom urllib import request 获取网页页面  12url = &#x27;https://olympics.com/tokyo-2020/olympic-games/zh/results/all-sports/medal-standings.htm&#x27;page1 = request.urlopen(url) 读取网页数据  12html = page1....</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/07/03/MyBatis-plus%E6%95%B4%E5%90%88sqlite3/" title="MyBatis-plus整合SQLite3">MyBatis-plus整合SQLite3</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-07-03T07:00:37.236Z" title="发表于 2026-07-03 15:00:37">2026-07-03</time></span></div><div class="content">@TOC 关于SQLite SQLite 是一个软件库，实现了自给自足的、无服务器的、零配置的、事务性的 SQL 数据库引擎。 SQLite主页：https://www.sqlite.org/index.html  项目目录1234567891011121314src└─main    ├─java    │  └─com    │      └─example    │          └─demo    │              ├─controller # 控制层目录    │              ├─dao    │              │  └─Mapper # 映射器目录    │              └─entity    # 实体类目录    └─resources        ├─static        │  └─sqlite            # 数据库目录        └─templates  创建数据库 建一个user表，包含主键id，用户名name。  12345create table user(  id   INT...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/07/03/Linux%E6%96%B0%E5%BB%BA%E7%94%A8%E6%88%B7%EF%BC%8C%E5%B9%B6%E5%90%91%E7%94%A8%E6%88%B7%E6%8C%82%E8%BD%BD%E7%A9%BA%E4%BD%99%E5%88%86%E5%8C%BA/" title="Linux新建用户">Linux新建用户</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-07-03T07:00:37.234Z" title="发表于 2026-07-03 15:00:37">2026-07-03</time></span></div><div class="content">@TOC 示例说明 以Centos6系统为例 在root管理权限下进行  新建用户 使用 ls 查看已有用户    12[root@buer ~]# ls /home/buer  新建用户 bueryouth    123[root@buer ~]# adduser -d /home/bueryouth -m bueryouth[root@buer ~]# ls /home/buer  bueryouth   此命令创建了一个用户bueryouth，其中 -d 指定用户主目录，如果此目录不存在，则同时使用 -m 创建主目录。  使用 ls 查看用户    12[root@buer ~]# ls /home/buer  bueryouth  复制配置文件由于缺少用户登入需要的环境配置文件.bash_profile .bashrc等，需要复制一份   1[root@buer ~]# cp -a /etc/skel/. /home/bueryouth/ 查看分区 查看当前分区情况 df -h    12345[root@buer ~]# df -hFilesystem         ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/07/03/Git%E5%B7%A5%E5%85%B7%E7%AE%80%E5%8D%95%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/" title="Git工具安装配置">Git工具安装配置</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-07-03T07:00:37.231Z" title="发表于 2026-07-03 15:00:37">2026-07-03</time></span></div><div class="content">@TOC 关于工具 git官方手册：https://git-scm.com/book/zh/v2 图解git：http://marklodato.github.io/visual-git-guide/index-zh-cn.html  Git工具下载下载地址：https://git-scm.com/download/win  Git工具安装 双击工具Git    傻瓜式操作，一路Next    完成安装   Git基本配置 运行cmd命令行工具 验证git安装 git –version   12C:\buerYouth&gt;git --versiongit version 2.33.0.windows.2 设置用户名 git  config –global  user.name  ‘gitee的用户名’  1C:\buerYouth&gt;git config --global user.name &#x27;***&#x27; 设置用户邮箱 git  config –global  user.email  ‘gitee绑定的邮箱’  1C:\buerYouth&gt;git ...</div></div></div><div class="recent-post-item"><div class="recent-post-info no-cover"><a class="article-title" href="/2026/07/02/hello-world/" title="Hello World">Hello World</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">发表于</span><time datetime="2026-07-02T15:52:00.166Z" title="发表于 2026-07-02 23:52:00">2026-07-02</time></span></div><div class="content">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new &quot;My New Post&quot;  More info: Writing Run server1$ hexo server  More info: Server Generate static files1$ hexo generate  More info: Generating Deploy to remote sites1$ hexo deploy  More info: Deployment </div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">BuerYouth</div><div class="author-info-description">热爱技术，热爱生活，记录成长点滴。</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/BuerYouth"><i class="fab fa-github"></i><span>关注我</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎光临！这里是 BuerYouth 的技术小窝，Stay Hungry, Stay Foolish。</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/03/SpringBoot%E6%95%B4%E5%90%88Redis%E7%BC%93%E5%AD%98%E5%AE%9E%E4%BE%8B/" title="Spring Boot整合Redis缓存实例">Spring Boot整合Redis缓存实例</a><time datetime="2026-07-03T07:00:37.242Z" title="发表于 2026-07-03 15:00:37">2026-07-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/03/SpringBoot%E6%95%B4%E5%90%88Jpa%E5%BB%BA%E7%AB%8B%E6%95%B0%E6%8D%AE%E8%A1%A8/" title="Spring Boot整合Jpa建立数据表">Spring Boot整合Jpa建立数据表</a><time datetime="2026-07-03T07:00:37.241Z" title="发表于 2026-07-03 15:00:37">2026-07-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/03/Python%E8%B0%83%E7%94%A8/" title="Python调用另一个.py文件中的类和函数">Python调用另一个.py文件中的类和函数</a><time datetime="2026-07-03T07:00:37.239Z" title="发表于 2026-07-03 15:00:37">2026-07-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/03/Python%E7%88%AC%E5%8F%96%E5%A5%A5%E8%BF%90%E5%A5%96%E7%89%8C%E6%A6%9C/" title="Python爬取奥运奖牌榜">Python爬取奥运奖牌榜</a><time datetime="2026-07-03T07:00:37.237Z" title="发表于 2026-07-03 15:00:37">2026-07-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/03/MyBatis-plus%E6%95%B4%E5%90%88sqlite3/" title="MyBatis-plus整合SQLite3">MyBatis-plus整合SQLite3</a><time datetime="2026-07-03T07:00:37.236Z" title="发表于 2026-07-03 15:00:37">2026-07-03</time></div></div></div></div><div class="card-widget card-archives">
+    <div class="item-headline">
+      <i class="fas fa-archive"></i>
+      <span>归档</span>
+      
+    </div>
+  
+    <ul class="card-archive-list">
+      
+        <li class="card-archive-list-item">
+          <a class="card-archive-list-link" href="/archives/2026/07/">
+            <span class="card-archive-list-date">
+              2026 年 07 月
+            </span>
+            <span class="card-archive-list-count">8</span>
+          </a>
+        </li>
+      
+    </ul>
+  </div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站信息</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">文章数目 :</div><div class="item-count">8</div></div><div class="webinfo-item"><div class="item-name">本站总字数 :</div><div class="item-count">4.7k</div></div><div class="webinfo-item"><div class="item-name">本站访客数 :</div><div class="item-count" id="busuanzi_value_site_uv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">本站总浏览量 :</div><div class="item-count" id="busuanzi_value_site_pv"><i class="fa-solid fa-spinner fa-spin"></i></div></div><div class="webinfo-item"><div class="item-name">最后更新时间 :</div><div class="item-count" id="last-push-date" data-lastPushDate="2026-07-03T07:02:51.854Z"><i class="fa-solid fa-spinner fa-spin"></i></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By BuerYouth</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.2</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.5</a></span></div><div class="footer_custom_text">Powered by Hexo & Butterfly Theme</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.5"></script><script src="/js/main.js?v=5.5.5"></script><div class="js-pjax"><script>window.typedJSFn = {
+  init: str => {
+    window.typed = new Typed('#subtitle', Object.assign({
+      strings: str,
+      startDelay: 300,
+      typeSpeed: 150,
+      loop: true,
+      backSpeed: 50,
+    }, null))
+  },
+  run: subtitleType => {
+    if (true) {
+      if (typeof Typed === 'function') {
+        subtitleType()
+      } else {
+        btf.getScript('https://cdn.jsdelivr.net/npm/typed.js@3.0.0/dist/typed.umd.min.js').then(subtitleType)
+      }
+    } else {
+      subtitleType()
+    }
+  },
+  processSubtitle: (content, extraContents = []) => {
+    if (true) {
+      const sub = ["Please believe, something beautiful is on its way!"].slice()
+
+      if (extraContents.length > 0) {
+        sub.unshift(...extraContents)
+      }
+
+      if (typeof content === 'string') {
+        sub.unshift(content)
+      } else if (Array.isArray(content)) {
+        sub.unshift(...content)
+      }
+
+      sub.length > 0 && typedJSFn.init(sub)
+    } else {
+      document.getElementById('subtitle').textContent = typeof content === 'string' ? content :
+        (Array.isArray(content) && content.length > 0 ? content[0] : '')
+    }
+  }
+}
+btf.addGlobalFn('pjaxSendOnce', () => { typed.destroy() }, 'typedDestroy')
+</script><script>function subtitleType () {
+  typedJSFn.processSubtitle(["Please believe, something beautiful is on its way!"])
+}
+typedJSFn.run(subtitleType)</script></div><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>

@@ -1,0 +1,281 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Linux新建用户 | BuerYouth</title><meta name="author" content="BuerYouth"><meta name="copyright" content="BuerYouth"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta name="description" content="@TOC 示例说明 以Centos6系统为例 在root管理权限下进行  新建用户 使用 ls 查看已有用户    12[root@buer ~]# ls &#x2F;home&#x2F;buer  新建用户 bueryouth    123[root@buer ~]# adduser -d &#x2F;home&#x2F;bueryouth -m bueryouth[root@buer ~]# ls &#x2F;home&#x2F;buer  buery">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux新建用户">
+<meta property="og:url" content="https://bueryouth.github.io/2026/07/03/Linux%E6%96%B0%E5%BB%BA%E7%94%A8%E6%88%B7%EF%BC%8C%E5%B9%B6%E5%90%91%E7%94%A8%E6%88%B7%E6%8C%82%E8%BD%BD%E7%A9%BA%E4%BD%99%E5%88%86%E5%8C%BA/index.html">
+<meta property="og:site_name" content="BuerYouth">
+<meta property="og:description" content="@TOC 示例说明 以Centos6系统为例 在root管理权限下进行  新建用户 使用 ls 查看已有用户    12[root@buer ~]# ls &#x2F;home&#x2F;buer  新建用户 bueryouth    123[root@buer ~]# adduser -d &#x2F;home&#x2F;bueryouth -m bueryouth[root@buer ~]# ls &#x2F;home&#x2F;buer  buery">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://bueryouth.github.io/img/avatar.jpg">
+<meta property="article:published_time" content="2026-07-03T07:00:37.234Z">
+<meta property="article:modified_time" content="2026-07-03T07:00:37.235Z">
+<meta property="article:author" content="BuerYouth">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://bueryouth.github.io/img/avatar.jpg"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Linux新建用户",
+  "url": "https://bueryouth.github.io/2026/07/03/Linux%E6%96%B0%E5%BB%BA%E7%94%A8%E6%88%B7%EF%BC%8C%E5%B9%B6%E5%90%91%E7%94%A8%E6%88%B7%E6%8C%82%E8%BD%BD%E7%A9%BA%E4%BD%99%E5%88%86%E5%8C%BA/",
+  "image": "https://bueryouth.github.io/img/avatar.jpg",
+  "datePublished": "2026-07-03T07:00:37.234Z",
+  "dateModified": "2026-07-03T07:00:37.235Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "BuerYouth",
+      "url": "https://bueryouth.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/logo.png"><link rel="canonical" href="https://bueryouth.github.io/2026/07/03/Linux%E6%96%B0%E5%BB%BA%E7%94%A8%E6%88%B7%EF%BC%8C%E5%B9%B6%E5%90%91%E7%94%A8%E6%88%B7%E6%8C%82%E8%BD%BD%E7%A9%BA%E4%BD%99%E5%88%86%E5%8C%BA/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.5"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.2.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          const mediaQueryDark = window.matchMedia('(prefers-color-scheme: dark)')
+          const mediaQueryLight = window.matchMedia('(prefers-color-scheme: light)')
+
+          if (theme === undefined) {
+            if (mediaQueryLight.matches) activateLightMode()
+            else if (mediaQueryDark.matches) activateDarkMode()
+            else {
+              const hour = new Date().getHours()
+              const isNight = hour <= 6 || hour >= 18
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            mediaQueryDark.addEventListener('change', () => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else {
+            theme === 'light' ? activateLightMode() : activateDarkMode()
+          }
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.13.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Linux新建用户',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><link rel="stylesheet" href="/css/custom.css"><meta name="generator" content="Hexo 8.1.2"></head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><script>(()=>{
+  const $loadingBox = document.getElementById('loading-box')
+  const $body = document.body
+  const preloader = {
+    endLoading: () => {
+      if ($loadingBox.classList.contains('loaded')) return
+      $body.style.overflow = ''
+      $loadingBox.classList.add('loaded')
+    },
+    initLoading: () => {
+      $body.style.overflow = 'hidden'
+      $loadingBox.classList.remove('loaded')
+    }
+  }
+
+  preloader.initLoading()
+
+  if (document.readyState === 'complete') {
+    preloader.endLoading()
+  } else {
+    window.addEventListener('load', preloader.endLoading)
+    document.addEventListener('DOMContentLoaded', preloader.endLoading)
+    // Add timeout protection: force end after 7 seconds
+    setTimeout(preloader.endLoading, 7000)
+  }
+
+  if (false) {
+    btf.addGlobalFn('pjaxSend', preloader.initLoading, 'preloader_init')
+    btf.addGlobalFn('pjaxComplete', preloader.endLoading, 'preloader_end')
+  }
+})()</script><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/bg.jpg);"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/logo.png" alt="Logo"><span class="site-name">BuerYouth</span></a><a class="nav-page-title" href="/"><span class="site-name">Linux新建用户</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"></div></nav><div id="post-info"><h1 class="post-title">Linux新建用户</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2026-07-03T07:00:37.234Z" title="发表于 2026-07-03 15:00:37">2026-07-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2026-07-03T07:00:37.235Z" title="更新于 2026-07-03 15:00:37">2026-07-03</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">总字数:</span><span class="word-count">990</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>4分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><p>@<a href="Linux%E6%96%B0%E5%BB%BA%E7%94%A8%E6%88%B7%EF%BC%8C%E5%B9%B6%E6%8C%82%E8%BD%BD%E7%A9%BA%E4%BD%99%E5%88%86%E5%8C%BA">TOC</a></p>
+<h2 id="示例说明"><a href="#示例说明" class="headerlink" title="示例说明"></a>示例说明</h2><ul>
+<li>以Centos6系统为例</li>
+<li>在root管理权限下进行</li>
+</ul>
+<h2 id="新建用户"><a href="#新建用户" class="headerlink" title="新建用户"></a>新建用户</h2><ul>
+<li>使用 <strong>ls</strong> 查看已有用户</li>
+</ul>
+  <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="meta">root@buer ~</span>]<span class="meta"># ls /home/</span></span><br><span class="line">buer</span><br></pre></td></tr></table></figure>
+<ul>
+<li>新建用户 <strong>bueryouth</strong></li>
+</ul>
+  <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[<span class="meta">root@buer ~</span>]<span class="meta"># adduser -d /home/bueryouth -m bueryouth</span></span><br><span class="line">[<span class="meta">root@buer ~</span>]<span class="meta"># ls /home/</span></span><br><span class="line">buer  bueryouth</span><br></pre></td></tr></table></figure>
+<p>  <em>此命令创建了一个用户bueryouth，其中 -d 指定用户主目录，如果此目录不存在，则同时使用 -m 创建主目录。</em></p>
+<ul>
+<li>使用 <strong>ls</strong> 查看用户</li>
+</ul>
+  <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[<span class="meta">root@buer ~</span>]<span class="meta"># ls /home/</span></span><br><span class="line">buer  bueryouth</span><br></pre></td></tr></table></figure>
+<ul>
+<li>复制配置文件<br><em>由于缺少用户登入需要的环境配置文件.bash_profile .bashrc等，需要复制一份</em></li>
+</ul>
+ <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="meta">root@buer ~</span>]<span class="meta"># cp -a /etc/skel/. /home/bueryouth/</span></span><br></pre></td></tr></table></figure>
+<h2 id="查看分区"><a href="#查看分区" class="headerlink" title="查看分区"></a>查看分区</h2><ul>
+<li>查看当前分区情况 <strong>df -h</strong></li>
+</ul>
+  <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[<span class="meta">root@buer ~</span>]<span class="meta"># df -h</span></span><br><span class="line">Filesystem                   Size  Used Avail Use% Mounted <span class="keyword">on</span></span><br><span class="line">/dev/mapper/vg_buer-lv_root  <span class="number">22</span>G  <span class="number">4.5</span>G   <span class="number">17</span>G  <span class="number">22</span>% /</span><br><span class="line">tmpfs                        <span class="number">931</span>M   <span class="number">72</span>K  <span class="number">931</span>M   <span class="number">1</span>% /dev/shm</span><br><span class="line">/dev/sda1                    <span class="number">477</span>M   <span class="number">41</span>M  <span class="number">411</span>M   <span class="number">9</span>% /boot</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>判断是否有剩余空间</li>
+</ul>
+  <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[<span class="meta">root@buer ~</span>]<span class="meta"># fdisk -l</span></span><br><span class="line">Disk /dev/sda: <span class="number">29.0</span> GB, <span class="number">28991029248</span> bytes  <span class="meta"># 查看总空间大小</span></span><br><span class="line"><span class="number">255</span> heads, <span class="number">63</span> sectors/track, <span class="number">3524</span> cylinders</span><br><span class="line">Units = cylinders of <span class="number">16065</span> * <span class="number">512</span> = <span class="number">8225280</span> <span class="function">bytes</span></span><br><span class="line"><span class="function">Sector <span class="title">size</span> (<span class="params">logical/physical</span>): 512 bytes / 512 bytes</span></span><br><span class="line"><span class="function">I/O <span class="title">size</span> (<span class="params">minimum/optimal</span>): 512 bytes / 512 bytes</span></span><br><span class="line"><span class="function">Disk identifier: 0x0001812f</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">   Device Boot      Start         End      Blocks   Id  System</span></span><br><span class="line"><span class="function">/dev/sda1   *           1          64      512000   83  Linux</span></span><br><span class="line"><span class="function">Partition 1 does <span class="keyword">not</span> end <span class="keyword">on</span> cylinder boundary.</span></span><br><span class="line"><span class="function">/dev/sda2              64        3264    25701376   8e  Linux LVM</span></span><br><span class="line"><span class="function"># 查看已用空间，是否有剩余，如果空间不够，需要扩展磁盘</span></span><br><span class="line"><span class="function">······</span></span><br></pre></td></tr></table></figure>
+<h2 id="新建分区"><a href="#新建分区" class="headerlink" title="新建分区"></a>新建分区</h2><ul>
+<li>输入 <strong>fdisk [磁盘]</strong> 命令开始分区（一定要谨慎操作）</li>
+</ul>
+  <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[<span class="meta">root@buer ~</span>]<span class="meta"># fdisk /dev/sda</span></span><br><span class="line"></span><br><span class="line">WARNING: DOS-compatible mode <span class="keyword">is</span> deprecated. It<span class="string">&#x27;s strongly recommended to</span></span><br><span class="line"><span class="string">         switch off the mode (command &#x27;</span>c<span class="string">&#x27;) and change display units to</span></span><br><span class="line"><span class="string">         sectors (command &#x27;</span>u<span class="string">&#x27;).</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Command (m for help): </span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用 <strong>fdisk</strong> 新建分区</li>
+</ul>
+<ol>
+<li>输入 <strong>n</strong> ，新建磁盘</li>
+<li>输入 <strong>p</strong> ，新建扩展分区</li>
+<li>输入 <strong>1-4的数字</strong> ，使用第几个主分区（若冲突了就往后换）</li>
+<li>直接回车，选择默认</li>
+<li>设置分区大小,例：+1G（设置1GB大小，注意单位） </li>
+<li>输入 <strong>w</strong> ，保存配置并退出（若操作有误，输入q,不保存退出）</li>
+</ol>
+  <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">[<span class="meta">root@buer ~</span>]<span class="meta"># fdisk /dev/sda</span></span><br><span class="line">WARNING: DOS-compatible mode <span class="keyword">is</span> deprecated. It<span class="string">&#x27;s strongly recommended to</span></span><br><span class="line"><span class="string">         switch off the mode (command &#x27;</span>c<span class="string">&#x27;) and change display units to</span></span><br><span class="line"><span class="string">         sectors (command &#x27;</span>u<span class="string">&#x27;).</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Command (m for help): n</span></span><br><span class="line"><span class="string">Command action</span></span><br><span class="line"><span class="string">   e   extended</span></span><br><span class="line"><span class="string">   p   primary partition (1-4)</span></span><br><span class="line"><span class="string">p</span></span><br><span class="line"><span class="string">Partition number (1-4): 3</span></span><br><span class="line"><span class="string">First cylinder (3264-3524, default 3264): </span></span><br><span class="line"><span class="string">Using default value 3264</span></span><br><span class="line"><span class="string">Last cylinder, +cylinders or +size&#123;K,M,G&#125; (3264-3524, default 3524): +1G</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Command (m for help): w</span></span><br><span class="line"><span class="string">The partition table has been altered!</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Calling ioctl() to re-read partition table.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">WARNING: Re-reading the partition table failed with error 16: 设备或资源忙.</span></span><br><span class="line"><span class="string">The kernel still uses the old table. The new table will be used at</span></span><br><span class="line"><span class="string">the next reboot or after you run partprobe(8) or kpartx(8)</span></span><br><span class="line"><span class="string">Syncing disks.</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用 <strong>fdisk -l</strong> 查看新的分区（此时df -h不显示）</li>
+</ul>
+  <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">[<span class="meta">root@buer ~</span>]<span class="meta"># fdisk -l</span></span><br><span class="line"></span><br><span class="line">Disk /dev/sda: <span class="number">29.0</span> GB, <span class="number">28991029248</span> bytes</span><br><span class="line"><span class="number">255</span> heads, <span class="number">63</span> sectors/track, <span class="number">3524</span> cylinders</span><br><span class="line">Units = cylinders of <span class="number">16065</span> * <span class="number">512</span> = <span class="number">8225280</span> <span class="function">bytes</span></span><br><span class="line"><span class="function">Sector <span class="title">size</span> (<span class="params">logical/physical</span>): 512 bytes / 512 bytes</span></span><br><span class="line"><span class="function">I/O <span class="title">size</span> (<span class="params">minimum/optimal</span>): 512 bytes / 512 bytes</span></span><br><span class="line"><span class="function">Disk identifier: 0x0001812f</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">   Device Boot      Start         End      Blocks   Id  System</span></span><br><span class="line"><span class="function">/dev/sda1   *           1          64      512000   83  Linux</span></span><br><span class="line"><span class="function">Partition 1 does <span class="keyword">not</span> end <span class="keyword">on</span> cylinder boundary.</span></span><br><span class="line"><span class="function">/dev/sda2              64        3264    25701376   8e  Linux LVM</span></span><br><span class="line"><span class="function">/dev/sda3            3264        3395     1055937+  83  Linux</span></span><br><span class="line"><span class="function"># /dev/sda3是新建的分区</span></span><br><span class="line"><span class="function">······</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>格式化分区（可根据需求决定文件系统的格式,这里以ext3为例子）</li>
+</ul>
+  <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">[<span class="meta">root@buer ~</span>]<span class="meta"># mkfs.ext3 /dev/sda3</span></span><br><span class="line">mke2fs <span class="number">1.41</span><span class="number">.12</span> (<span class="number">17</span>-May<span class="number">-2010</span>)</span><br><span class="line">文件系统标签=</span><br><span class="line">操作系统:Linux</span><br><span class="line">块大小=<span class="number">1024</span> (log=<span class="number">0</span>)</span><br><span class="line">分块大小=<span class="number">1024</span> (log=<span class="number">0</span>)</span><br><span class="line">Stride=<span class="number">0</span> blocks, Stripe width=<span class="number">0</span> blocks</span><br><span class="line"><span class="number">51200</span> inodes, <span class="number">204492</span> blocks</span><br><span class="line"><span class="number">10224</span> blocks (<span class="number">5.00</span>%) reserved <span class="keyword">for</span> the super user</span><br><span class="line">第一个数据块=<span class="number">1</span></span><br><span class="line">Maximum filesystem blocks=<span class="number">67371008</span></span><br><span class="line"><span class="number">25</span> block groups</span><br><span class="line"><span class="number">8192</span> blocks per <span class="keyword">group</span>, <span class="number">8192</span> fragments per <span class="keyword">group</span></span><br><span class="line"><span class="number">2048</span> inodes per <span class="keyword">group</span></span><br><span class="line">Superblock backups stored <span class="keyword">on</span> blocks: </span><br><span class="line">  <span class="number">8193</span>, <span class="number">24577</span>, <span class="number">40961</span>, <span class="number">57345</span>, <span class="number">73729</span></span><br><span class="line"></span><br><span class="line">正在写入inode表: 完成                            </span><br><span class="line"><span class="function">Creating <span class="title">journal</span> (<span class="params"><span class="number">4096</span> blocks</span>): 完成</span></span><br><span class="line"><span class="function">Writing superblocks <span class="keyword">and</span> filesystem accounting information: 完成</span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">This filesystem will be automatically checked every 27 mounts <span class="keyword">or</span></span></span><br><span class="line"><span class="function">180 days, whichever comes first.  Use tune2fs -c <span class="keyword">or</span> -i to <span class="keyword">override</span>.</span></span><br></pre></td></tr></table></figure>
+<h2 id="挂载分区"><a href="#挂载分区" class="headerlink" title="挂载分区"></a>挂载分区</h2><ul>
+<li>使用  <strong>mount</strong>   [分区]   [用户]挂载分区</li>
+</ul>
+  <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="meta">root@buer ~</span>]<span class="meta"># mount /dev/sda3 /home/bueryouth</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用 <strong>df -h</strong> 查看当前分区挂载情况</li>
+</ul>
+  <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[<span class="meta">root@buer ~</span>]<span class="meta"># df -h</span></span><br><span class="line">Filesystem            Size  Used Avail Use% Mounted <span class="keyword">on</span></span><br><span class="line">/dev/mapper/vg_buer-lv_root</span><br><span class="line">                       <span class="number">22</span>G  <span class="number">4.5</span>G   <span class="number">17</span>G  <span class="number">22</span>% /</span><br><span class="line">tmpfs                 <span class="number">931</span>M   <span class="number">72</span>K  <span class="number">931</span>M   <span class="number">1</span>% /dev/shm</span><br><span class="line">/dev/sda1             <span class="number">477</span>M   <span class="number">41</span>M  <span class="number">411</span>M   <span class="number">9</span>% /boot</span><br><span class="line">/dev/sda3             <span class="number">194</span>M  <span class="number">5.6</span>M  <span class="number">178</span>M   <span class="number">4</span>% /home/bueryouth </span><br></pre></td></tr></table></figure>
+<ul>
+<li>设置开机自动挂载</li>
+</ul>
+<figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="meta">root@buer ~</span>]<span class="meta"># echo &#x27;/dev/sda3 /home/bueryouth ext3 defaults 0 0&#x27; &gt;&gt; /etc/fstab</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>或者手动编辑</li>
+</ul>
+ <figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="meta">root@buer ~</span>]<span class="meta"># vi /etc/fstab</span></span><br></pre></td></tr></table></figure>
+<p>推荐Linux命令网站：<a target="_blank" rel="noopener" href="https://www.linuxcool.com/">Linux命令大全(手册)</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://bueryouth.github.io">BuerYouth</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://bueryouth.github.io/2026/07/03/Linux%E6%96%B0%E5%BB%BA%E7%94%A8%E6%88%B7%EF%BC%8C%E5%B9%B6%E5%90%91%E7%94%A8%E6%88%B7%E6%8C%82%E8%BD%BD%E7%A9%BA%E4%BD%99%E5%88%86%E5%8C%BA/">https://bueryouth.github.io/2026/07/03/Linux%E6%96%B0%E5%BB%BA%E7%94%A8%E6%88%B7%EF%BC%8C%E5%B9%B6%E5%90%91%E7%94%A8%E6%88%B7%E6%8C%82%E8%BD%BD%E7%A9%BA%E4%BD%99%E5%88%86%E5%8C%BA/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="https://bueryouth.github.io" target="_blank">BuerYouth</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/avatar.jpg" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2026/07/03/MyBatis-plus%E6%95%B4%E5%90%88sqlite3/" title="MyBatis-plus整合SQLite3"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">MyBatis-plus整合SQLite3</div></div><div class="info-2"><div class="info-item-1">@TOC 关于SQLite SQLite 是一个软件库，实现了自给自足的、无服务器的、零配置的、事务性的 SQL 数据库引擎。 SQLite主页：https://www.sqlite.org/index.html  项目目录1234567891011121314src└─main    ├─java    │  └─com    │      └─example    │          └─demo    │              ├─controller # 控制层目录    │              ├─dao    │              │  └─Mapper # 映射器目录    │              └─entity    # 实体类目录    └─resources        ├─static        │  └─sqlite            # 数据库目录        └─templates  创建数据库 建一个user表，包含主键id，用户名name。  12345create table user(  id   INT...</div></div></div></a><a class="pagination-related" href="/2026/07/03/Git%E5%B7%A5%E5%85%B7%E7%AE%80%E5%8D%95%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/" title="Git工具安装配置"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">Git工具安装配置</div></div><div class="info-2"><div class="info-item-1">@TOC 关于工具 git官方手册：https://git-scm.com/book/zh/v2 图解git：http://marklodato.github.io/visual-git-guide/index-zh-cn.html  Git工具下载下载地址：https://git-scm.com/download/win  Git工具安装 双击工具Git    傻瓜式操作，一路Next    完成安装   Git基本配置 运行cmd命令行工具 验证git安装 git –version   12C:\buerYouth&gt;git --versiongit version 2.33.0.windows.2 设置用户名 git  config –global  user.name  ‘gitee的用户名’  1C:\buerYouth&gt;git config --global user.name &#x27;***&#x27; 设置用户邮箱 git  config –global  user.email  ‘gitee绑定的邮箱’  1C:\buerYouth&gt;git ...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">BuerYouth</div><div class="author-info-description">热爱技术，热爱生活，记录成长点滴。</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">8</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/BuerYouth"><i class="fab fa-github"></i><span>关注我</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">欢迎光临！这里是 BuerYouth 的技术小窝，Stay Hungry, Stay Foolish。</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B%E8%AF%B4%E6%98%8E"><span class="toc-number">1.</span> <span class="toc-text">示例说明</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B0%E5%BB%BA%E7%94%A8%E6%88%B7"><span class="toc-number">2.</span> <span class="toc-text">新建用户</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E5%88%86%E5%8C%BA"><span class="toc-number">3.</span> <span class="toc-text">查看分区</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B0%E5%BB%BA%E5%88%86%E5%8C%BA"><span class="toc-number">4.</span> <span class="toc-text">新建分区</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%82%E8%BD%BD%E5%88%86%E5%8C%BA"><span class="toc-number">5.</span> <span class="toc-text">挂载分区</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/03/SpringBoot%E6%95%B4%E5%90%88Redis%E7%BC%93%E5%AD%98%E5%AE%9E%E4%BE%8B/" title="Spring Boot整合Redis缓存实例">Spring Boot整合Redis缓存实例</a><time datetime="2026-07-03T07:00:37.242Z" title="发表于 2026-07-03 15:00:37">2026-07-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/03/SpringBoot%E6%95%B4%E5%90%88Jpa%E5%BB%BA%E7%AB%8B%E6%95%B0%E6%8D%AE%E8%A1%A8/" title="Spring Boot整合Jpa建立数据表">Spring Boot整合Jpa建立数据表</a><time datetime="2026-07-03T07:00:37.241Z" title="发表于 2026-07-03 15:00:37">2026-07-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/03/Python%E8%B0%83%E7%94%A8/" title="Python调用另一个.py文件中的类和函数">Python调用另一个.py文件中的类和函数</a><time datetime="2026-07-03T07:00:37.239Z" title="发表于 2026-07-03 15:00:37">2026-07-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/03/Python%E7%88%AC%E5%8F%96%E5%A5%A5%E8%BF%90%E5%A5%96%E7%89%8C%E6%A6%9C/" title="Python爬取奥运奖牌榜">Python爬取奥运奖牌榜</a><time datetime="2026-07-03T07:00:37.237Z" title="发表于 2026-07-03 15:00:37">2026-07-03</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2026/07/03/MyBatis-plus%E6%95%B4%E5%90%88sqlite3/" title="MyBatis-plus整合SQLite3">MyBatis-plus整合SQLite3</a><time datetime="2026-07-03T07:00:37.236Z" title="发表于 2026-07-03 15:00:37">2026-07-03</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 - 2026 By BuerYouth</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 8.1.2</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.5</a></span></div><div class="footer_custom_text">Powered by Hexo & Butterfly Theme</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.5"></script><script src="/js/main.js?v=5.5.5"></script><div class="js-pjax"></div><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/dist/click-heart.min.js" async="async" mobile="false"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
